@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
     <title>main page</title>
     <script>
         function validateForm(){
@@ -20,17 +19,46 @@
         }
     </script>
 </head>
-<body>
-    <form method="POST" onsubmit="return validateForm()">
+<body> <!-- /result api에 대한 POST 전송 -->
+    <form action='/result' method="POST" onsubmit="return validateForm()">
         
-        <p><b>* Name</b> <input type="'text" id='name'name="name"/> </p>
+        <p><b>* Name</b> <input type="'text" id='name'name="name"/></p>
         
+        <p><b>* Student Number </b><input type="text" id='number' name="number"></p>
 
+        <p><b> * Major </b><input type="text" id='major' name ="major"/></p>
+
+        <p>
+            <b> * Email </b> <input type="email_id" id="email_id" name="email_id"/>
+            @
+            <select id="email_addr" name="email_addr"> <!-- drop down list -->
+                <option value="naver.com">naver.com</option>
+                <option value="gmail.com">gmail.com</option>
+                <option value="hanmail.net">hanmail.net</option>
+                <option value="nate.com">nate.com</option>
+            </select>
+        </p>
+
+        <p>
+            Gender
+            <br>
+            <br> <!-- Gender radio button -->
+            <input type="radio" name="gender" value="Male"> Male
+            <input type="radio" name="gender" value="Female"> Female
+        </p>
+
+        <p>
+            Programming Language
+            <br>
+            <br> <!-- Programming Language Checkbox -->
+            <input type="checkbox" name="chkbox" value="Python"/>Python
+            <input type="checkbox" name="chkbox" value="Java"/>Java
+            <input type="checkbox" name="chkbox" value="HTML"/>HTML
+            <input type="checkbox" name="chkbox" value="C++"/>C++
+        </p>
+
+        <!-- Submit button -->
         <p><button type='submit' value="submit">submit</button></p>
-        
     </form>
-   
-    
-    
 </body>
 </html>
