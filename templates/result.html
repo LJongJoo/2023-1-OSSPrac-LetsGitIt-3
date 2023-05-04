@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-   
+  <head>
     <title>result page</title>
-    
-</head>
-
-<body>
+  </head>
+  <body>
+    <!-- 추가부분 -->
     <form method="POST">
-        <table border='1'>
-            <thead>
-               
-            </thead>
-            <tbody>
-            
-
-            </tbody>
-        </table>
-       
-
-
+      <table border="1">
+        <thead>
+          <tr>
+            {% for item in header %}
+            <th>{{ item }}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in result %}
+          <tr>
+            {% for key, value in item.items() %}
+            <td>{{ value }}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <!-- 추가부분 -->
     </form>
-</body>
-
+  </body>
 </html>
