@@ -4,14 +4,14 @@ app=Flask(__name__)
  
 result_list = list()
 header = ['Name', 'Number', 'Major', 'Email', 'Gender', 'Languages'] 
-def sort_list():                                        #추가부분
-   result_list.sort(key = lambda x: x['Number'])        #추가부분
+def sort_list():                                     
+   result_list.sort(key = lambda x: x['Number'])       
 
 
 @app.route('/', methods = ['GET', 'POST'])  
 def main():
-   if request.method == 'POST':                      #추가부분
-        result_list.clear()                           #추가부분
+   if request.method == 'POST':                      
+        result_list.clear()                          
    return render_template('main.html')
  
 
@@ -26,8 +26,14 @@ def result():
       result['Gender'] = request.form.get('gender') 
       result['languages'] = ', '.join(request.form.getlist('chkbox')) 
       result_list.append(result) 
-      sort_list()                                   #추가부분
+      sort_list()                                  
       return render_template("result.html", result = result_list, header = header) 
+   if request.method == 'GET':
+      tmp = request.args.getlist('delete')
+      tmp.reverse()
+      for i in tmp:
+         result_list.pop(int(i))
+      return render_template("result.html", result = result_list, header = header)
 
 
  
