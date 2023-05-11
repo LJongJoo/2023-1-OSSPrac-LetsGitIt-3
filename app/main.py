@@ -1,6 +1,6 @@
 from flask import Flask, redirect,render_template,request 
  
-app=Flask(__name__) 
+app = Flask(__name__) 
  
 result_list = list()
 header = ['Name', 'Number', 'Major', 'Email', 'Gender', 'Languages'] 
