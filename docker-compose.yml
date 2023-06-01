@@ -3,6 +3,7 @@ version: "3.0"
 services:
   web:
     build: .
+    image : ${DOCKER_USR}/ossp_teamwork
     ports:
       - "80:80"
     
